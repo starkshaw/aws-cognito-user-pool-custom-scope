@@ -40,6 +40,40 @@ If all three fields are filled, `full_custom_domain_name` will be prioritized.
 
 Other parameters are required. The app client should support code grant and have client secret disabled.
 
+## Example Lambda Response
+
+```
+{
+  "statusCode": 200,
+  "body": {
+    "id_token": "",
+    "access_token": "",
+    "refresh_token": "",
+    "expires_in": 3600,
+    "token_type": "Bearer"
+  },
+  "headers": {
+    "Date": "",
+    "Content-Type": "",
+    "Transfer-Encoding": "",
+    "Connection": "",
+    "Set-Cookie": "",
+    "x-amz-cognito-request-id": "",
+    "X-Application-Context": "",
+    "X-Content-Type-Options": "",
+    "X-XSS-Protection": "",
+    "Cache-Control": "",
+    "Pragma": "",
+    "Expires": "",
+    "Strict-Transport-Security": "",
+    "X-Frame-Options": "",
+    "Server": ""
+  }
+}
+```
+
+If the authentication is successful, tokens will be stored inside `body`. The response headers returned are stored in `headers`.
+
 ## Logging
 
 If the Lambda function has the following permission, it will send diagnostic logs to CloudWatch log:
